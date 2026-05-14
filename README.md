@@ -1,1 +1,1 @@
-HOLA MUNDO
+This repository is a container of MYSQL with client PHPMYADMIN :p
