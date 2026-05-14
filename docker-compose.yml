@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql-sayayin
+    environment:
+      MYSQL_ROOT_PASSWORD: said_2026
+      MYSQL_DATABASE: sayayin_schema
+      MYSQL_USER: said_admin
+      MYSQL_PASSWORD: said_2026
+    ports:
+      - "3737:3306"
+    volumes:
+      - data_sayayin:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin-sayayin
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: sayayin_2026
+    ports:
+      - "8000:80"
+
+volumes:
+  data_sayayin:
